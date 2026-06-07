@@ -1,4 +1,4 @@
-all: build/tex/vXXX.pdf 
+all: build/tex/v01.pdf 
 
 var_plots = $(addprefix content/plots/, $(addsuffix .pdf, plot ))
 MODE = None
@@ -7,9 +7,9 @@ MODE = None
 $(var_plots) &: $(wildcard *.py) | plots 
 	mamba run -n toolbox sh -c 'for py in *.py; do python $$py; done'
 
-# hier weitere Abhängigkeiten für build/vXXX.pdf deklarieren:
+# hier weitere Abhängigkeiten für build/v01.pdf deklarieren:
 
-build/tex/vXXX.pdf: FORCE $(var_plots) | tex
+build/tex/v01.pdf: FORCE $(var_plots) | tex
 # to find header and bib files in the main directory
 ifeq ($(MODE), write)
 	TEXINPUTS=..: \
@@ -22,7 +22,7 @@ ifeq ($(MODE), write)
 	  --interaction=nonstopmode \
 	  --halt-on-error \
 	  -f \
-	vXXX.tex
+	v01.tex
 else
 	TEXINPUTS=..: \
 	BIBINPUTS=..: \
@@ -33,7 +33,7 @@ else
 	  --interaction=nonstopmode \
 	  --halt-on-error \
 	  -f \
-	vXXX.tex
+	v01.tex
 endif
 
 build:
