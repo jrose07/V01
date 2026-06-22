@@ -22,14 +22,52 @@ Der Einfachheit halber wird hierbei das Python-Paket \textit{uncertainties} verw
 % Ende Fehlerrechnung
 
 \subsection{Justieren der Verzögerungsleitung}
+Hierbei wurde ein Eingangssignal mit einer Breite von $t = \qty{15}{\nano\second}$ verwendet.
+Die Messdauer betrug jeweils \qty{20}{\second}.
+Die Unsicherheit der Zählrate $N$ ergibt sich aus $\sqrt{N}$.
+Die Messwerte Werten in \autoref{tab:delay} aufgetragen.
+\begin{table}[H]
+    \centering
+    \caption{Zählraten der Koinzidenz in Abhängigkeit der eingestellten Verzögerungszeit $\Delta t$ an der linken bzw. rechten Verzögerungsleitung.}
+    \label{tab:delay}
+    \begin{tabular}{S[table-format=2.0] S[table-format=3.0] S[table-format=3.0]}
+        \toprule
+        {$\Delta t \: / \: \unit{\nano\second}$} & {$N_{\text{links}}$} & {$N_{\text{rechts}}$} \\
+        \midrule
+        0  & 345 & {--} \\
+        2  & 351 & 332 \\
+        4  & 334 & 361 \\
+        6  & 370 & 304 \\
+        8  & 336 & 293 \\
+        10 & 357 & 306 \\
+        12 & 315 & 277 \\
+        14 & 342 & 187 \\
+        16 & 273 & 160 \\
+        18 & 249 & 127 \\
+        20 & 158 & 82 \\
+        22 & 152 & 32 \\
+        24 & 76  & 22 \\
+        26 & 47  & 11 \\
+        28 & 22  & 3 \\
+        30 & 15  & 2 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+In \autoref{fig:delay} werden die Messdaten aufgetragen. Hierbei wird das Plateau geplottet, in dem die Messwerte ungefähr konstant sind. Aus der Hälfte der counts des Plateaus wird dann die Halbwertsbreite bestimmt.
 \begin{figure}[H]
     \includegraphics[width=0.7\textwidth]{v01/content/plots/delay_plot.png}
     \caption{Justierung der Verzögerungsleitung.}
     \label{fig:delay}
 \end{figure}
-\subsection{Bestimmung der Channelzuordnung}
-In der ... sind die Messwerte zur Bestimmung der Channelzuordnung dargestellt. 
 
+Mithilfe der Formel 
+\begin{equation*}
+    t_{\text{verzögerung}} = t_{\text{HWB}} - t_{\text{Plateau}}
+\end{equation*}
+folgt $t_{\text{verzögerung}} = \qty{5}{\nano\second}$. 
+\subsection{Bestimmung der Channelzuordnung}
+In der \autoref{tab:mca_kalibration} sind die Messwerte zur Bestimmung der Kanalzuordnung dargestellt. 
+Die Kanäle in denen mehrere Counts eingeganen sind, wurden mithilfe des gewichteten Mittelwertes berechnet.
 \begin{table}[H]
     \centering
     \caption{Kalibrationsdaten des Vielkanalanalysators (MCA).}
@@ -73,13 +111,13 @@ mit den Parametern
 Daraus lassen sich die Zeiten den Kanälen zuordnen, wie in \autoref{fig:channel} dargestellt. 
 \begin{figure}[H]
     \includegraphics[width=0.7\textwidth]{v01/content/plots/channel_plot.png}
-    \caption{Bestimmung der Channelzuordnung.}
+    \caption{Bestimmung der Kanalzuordnung.}
     \label{fig:channel}
 \end{figure}
 \subsection{Bestimmung der Lebenszeit}
 Es wurde über einen Zeitraum von $t = \qty{258769}{s}$ gemessen, hierbei wurden ungefähr $N_{\text{Start}} = 986743$ Startsignale aufgenommen und $N_{\text{Stopp}} = 813$ Stoppsignale aufgenommen.
-Dazu ist anzumerken, dass beim Ablesen der Start- und Stoppsignale der Zähler Startsignale nicht weiter anstieg, der Zähler der Stoppsignale hingegen schon.
-Es wurden $N_{\text{gefüllt}= 466}$ Kanäle gefüllt.
+
+Es wurden $N_{\text{gefüllt}}= 466$ Kanäle gefüllt.
 \begin{figure}[H]
     \includegraphics[width=0.7\textwidth]{v01/content/plots/lifetime_plot.png}
     \caption{Lebenszeitverteilung der Myonen.}
@@ -103,5 +141,44 @@ Die Lebenszeit der Myonen berechnet sich über die Formel
 woraus sich für die Lebenszeit der Myonen $\tau = \qty{2.04(0.28)}{\micro\second}$ ergibt.
 
 \subsection{Bestimmung der Untergundrate}
+Zur Bestimmung der Untergundrate kann entweder die Methode verwendet werden, das $U$ aus dem exponenziellen Fit zu ziehen oder das $U$ kann rechnerisch bestimmt werden. Hierbei wird nur die zweite Methode verwendet, da das $U$ aus dem exponenziellen Fit wenig Aussagekraft hat, da der Fehler davon ziemlich groß ist.
+Um das $U$ rechnerisch zu bestimmen wird zuerst die durchschnittliche Rate der Myonen mit
+\begin{equation*}
+    N_{\text{Myon}} = \frac{N_{\text{Start}}}{t}
+\end{equation*}
+bestimmt, woraus $N_{\text{Myon}} $ folgt.
+Mit der vom Impulszähler abgelesenen Startimpulszahl $N_{\text{Start}} = \num{980000}$
+und der Messdauer $t = \qty{258769}{\second}$ ergibt sich
+\begin{equation*}
+    N_{\text{Myon}} = \qty{3.787(4)}{\per\second} .
+\end{equation*}
 
+Innerhalb der Suchzeit $T_{\text{S}}$ kann ein weiteres, unabhängig einfallendes Myon einen
+fehlerhaften Stoppimpuls auslösen. Da die Myonen unabhängig voneinander und im Mittel mit
+konstanter Rate eintreffen, ist die Anzahl der während $T_{\text{S}}$ einfallenden Myonen
+poissonverteilt. Die Wahrscheinlichkeit für genau $k$ weitere Myonen beträgt
+\begin{equation*}
+    P(k) = \frac{(T_{\text{S}} \cdot N_{\text{Myon}})^{k}}{k!} \,
+           \exp(-T_{\text{S}} \cdot N_{\text{Myon}}) .
+\end{equation*}
+Für einen fehlerhaften Stopp ist $k = 1$ relevant. Mit $T_{\text{S}} = \qty{11.24}{\micro\second}$
+folgt
+\begin{equation*}
+    P(1) = T_{\text{S}} \cdot N_{\text{Myon}} \cdot
+           \exp(-T_{\text{S}} \cdot N_{\text{Myon}}) = \num{4.26e-5} .
+\end{equation*}
+Daraus ergibt sich die Anzahl der fehlerhaften Stoppimpulse zu
+\begin{equation*}
+    N_{\text{fehl}} = N_{\text{Start}} \cdot P(1) = \num{41.70(8)} .
+\end{equation*}
+Da ein zufällig eintreffendes Myon zu jedem Zeitpunkt innerhalb von $T_{\text{S}}$ gleich
+wahrscheinlich ist, verteilen sich diese Stoppimpulse gleichmäßig auf die $\num{466}$
+befüllten Kanäle. Damit folgt die Untergrundrate pro Kanal zu
+\begin{equation*}
+    U_{\text{Poisson}} = \frac{N_{\text{fehl}}}{466}
+    = \num{0.0895(2)} \, \frac{\text{Counts}}{\text{Kanal}} .
+\end{equation*}
+Zum Vergleich liefert der Achsenabschnitt der Ausgleichsrechnung
+$U_{\text{Fit}} = \num{0.05(7)}\,\tfrac{\text{Counts}}{\text{Kanal}}$, was den über die
+Poisson-Statistik bestimmten Wert innerhalb seiner großen Unsicherheit bestätigt.
 \clearpage

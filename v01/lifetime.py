@@ -33,7 +33,7 @@ OUTPUT_PNG = dir + "lifetime_plot.png"
 # Zeitkalibrierung aus channel.py:  Delta_t = CAL_A * Kanal + CAL_B
 CAL_A = 0.021685      # us / Kanal
 CAL_B = 0.155200      # us
-SKIP_FIRST = 3        # erste Kanaele nicht in den Fit einbeziehen
+SKIP_FIRST = 0        # erste Kanaele nicht in den Fit einbeziehen
 
 
 # ----------------------------------------------------------------------
