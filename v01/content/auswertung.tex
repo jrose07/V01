@@ -28,28 +28,31 @@ Die Unsicherheit der Zählrate $N$ ergibt sich aus $\sqrt{N}$.
 Die Messwerte Werten in \autoref{tab:delay} aufgetragen.
 \begin{table}[H]
     \centering
-    \caption{Zählraten der Koinzidenz in Abhängigkeit der eingestellten Verzögerungszeit $\Delta t$ an der linken bzw. rechten Verzögerungsleitung.}
+    \caption{Zählraten der Koinzidenz in Abhängigkeit der Verzögerungszeit $\Delta t$.
+    Negative $\Delta t$ entsprechen einer Verzögerung der linken, positive einer
+    Verzögerung der rechten Verzögerungsleitung.}
     \label{tab:delay}
-    \begin{tabular}{S[table-format=2.0] S[table-format=3.0] S[table-format=3.0]}
+    \begin{tabular}{S[table-format=-2.0] S[table-format=3.0] S[table-format=2.0] S[table-format=3.0]}
         \toprule
-        {$\Delta t \: / \: \unit{\nano\second}$} & {$N_{\text{links}}$} & {$N_{\text{rechts}}$} \\
+        {$\Delta t \: / \: \unit{\nano\second}$} & {$N$} &
+        {$\Delta t \: / \: \unit{\nano\second}$} & {$N$} \\
         \midrule
-        0  & 345 & {--} \\
-        2  & 351 & 332 \\
-        4  & 334 & 361 \\
-        6  & 370 & 304 \\
-        8  & 336 & 293 \\
-        10 & 357 & 306 \\
-        12 & 315 & 277 \\
-        14 & 342 & 187 \\
-        16 & 273 & 160 \\
-        18 & 249 & 127 \\
-        20 & 158 & 82 \\
-        22 & 152 & 32 \\
-        24 & 76  & 22 \\
-        26 & 47  & 11 \\
-        28 & 22  & 3 \\
-        30 & 15  & 2 \\
+        -30 & 15  & 2  & 332 \\
+        -28 & 22  & 4  & 361 \\
+        -26 & 47  & 6  & 304 \\
+        -24 & 76  & 8  & 293 \\
+        -22 & 152 & 10 & 306 \\
+        -20 & 158 & 12 & 277 \\
+        -18 & 249 & 14 & 187 \\
+        -16 & 273 & 16 & 160 \\
+        -14 & 342 & 18 & 127 \\
+        -12 & 315 & 20 & 82  \\
+        -10 & 357 & 22 & 32  \\
+        -8  & 336 & 24 & 22  \\
+        -6  & 370 & 26 & 11  \\
+        -4  & 334 & 28 & 3   \\
+        -2  & 351 & 30 & 2   \\
+        0   & 345 & {}  & {}  \\
         \bottomrule
     \end{tabular}
 \end{table}
