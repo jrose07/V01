@@ -10,3 +10,4 @@ import matplotlib.pyplot as plt
 
 dir = "content/plots/"
 dir_tab = "content/tables/"
+
