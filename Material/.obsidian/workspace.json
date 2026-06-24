@@ -1,0 +1,194 @@
+{
+  "main": {
+    "id": "da0b99b4cb23ae2d",
+    "type": "split",
+    "children": [
+      {
+        "id": "aadadef9fbd7feda",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9bef3010e570221e",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "9e26a69bdd81d8a3",
+    "type": "split",
+    "children": [
+      {
+        "id": "7a7a0742a628509d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "da1191f8681d8cb8",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "e03fcb905035e30d",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "5fb8468658dca1e1",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "054cbdeba45de8c7",
+    "type": "split",
+    "children": [
+      {
+        "id": "d764f80da9e903e9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7744bd8cf531d864",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Notizen zum Versuch.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Notizen zum Versuch"
+            }
+          },
+          {
+            "id": "6f9415726fcbdea5",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Notizen zum Versuch.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Notizen zum Versuch"
+            }
+          },
+          {
+            "id": "9bb8bc3fad984915",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "9e6ddea81fd6f168",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "c960b01988489089",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Notizen zum Versuch.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Notizen zum Versuch"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "9bef3010e570221e",
+  "lastOpenFiles": [
+    "Q2_Teilchendetekoren.pdf",
+    "V01_Anleitung.pdf",
+    "Q1_ATP2.pdf",
+    "Notizen zum Versuch.md",
+    "Pasted image 20260608092828.png",
+    "Pasted image 20260608082916.png",
+    "Untitled.canvas",
+    "2026-06-08.md",
+    "[Q1_ATP2.pdf.md"
+  ]
+}
