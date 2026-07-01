@@ -14,6 +14,7 @@ build/tex/v01.pdf: FORCE $(var_plots) | tex
 ifeq ($(MODE), write)
 	TEXINPUTS=..: \
 	BIBINPUTS=..: \
+	PDFVIEWER='code --reuse-window' \
 	max_print_line=1048576 \
 	latexmk \
 	  -pvc \

@@ -1,18 +1,71 @@
 \section{Theorie}
 \label{sec:Theorie}
 
-\subsection{Entstehung kosmischer Myonen}
+% \subsection{Entstehung kosmischer Myonen}
 
 
 \begin{wrapfigure}[12]{r}{0.4\textwidth}
     \centering
     \includegraphics[width=0.38\textwidth]{content/pics/myonenentstehung.png}
-    \caption{Schematische Darstellung, wie Kosmische Myonen in der Atmosphäre entstehen~\cite{ATP2}.}
+    \caption{Schematische Darstellung, wie Kosmische Myonen in der Atmosphäre entstehen~\cite[204]{ATP2}.}
     \label{fig:myonentstehung}
 \end{wrapfigure}
 
 
-Kosmische Myonen 
+Kosmische Myonen, wie sie auf der Erde gemessen werden können, entstehen infolge der Wechselwirkung primärer kosmischer Strahlung mit der Atmosphäre und sind dementsprechend Teil der sogenannten sekundären kosmischen Strahlung. \\
+
+Primäre kosmische Strahlung besteht u.a. aus niederenergetischen ($E < \qty{10}{GeV}$~\cite{ATP2}) Protonen und Elektronen aus Sonnenwinden, die dann mit der Atmosphäre der Erde interagieren können. Treffen diese Protonen nun auf den Rand der Atmosphäre, wechselwirken sie mit den Luftmolekülen und eine \\
+Kaskadenreaktion, ein elektromagnetischer Schauer, \\
+wie in \autoref{fig:myonentstehung} entsteht. Hierbei werden u.a. \\
+kurzlebige Pionen und Kaonen erzeugt, die dann  \\
+nach kurzer Zeit über die Zerfallskanäle 
+\begin{align}
+    % (π + → μ+ + νμ, π – → μ– + ¯νμ; K+ → μ+ + νμ, K– → μ– + ¯νμ)
+    \pi^- &\rightarrow \mu^- + \overbar{\nu}_\mu \phantom{lhdljalsjdlajjdlajdljadljadlajdlajdlsd} \\
+    \intertext{und}
+    K^- &\rightarrow \mu^- + \overbar{\nu}_\mu
+\end{align}
+
+in Myonen und Anti-Myonenneutrinos zerfallen. \\
+Dieser Prozess passiert in ca. $10-15 \mathrm{km}$~\cite[200]{ATP2} \\
+Höhe in der Atmosphäre. 
+Die kosmischen Myonen \\ 
+sind allerdings auch auf Meereshöhe messbar, was \\
+zum einen daran liegt, dass Myonen in der \\
+Atmosphäre einen sehr geringen Energieverlust \\
+haben, also nur wenig mit den Luftmolekülen \\
+wechselwirken.\\
+Zum anderen hängt es damit zusammen, dass die relativ \\
+kurze Lebenszeit von $\tau = \qty{2.2}{\micro\second}$~\cite{Myon} aufgrund der \\
+hohen Energien der entstehenden Myonen \\
+(im $1-\qty{100}{GeV}$-Bereich~\cite{ATP2}) stark dilatiert wird, sodass die Myonen eine mittlere Reichweite von 
+\begin{equation}
+    L_\mu \approx \gamma \cdot \tau  c = \frac{1-\qty{100}{GeV}}{m_\mu c^2} \cdot \qty{2.2}{\micro\second} \cdot c \approx  6.2-\qty{620}{\kilo\meter}
+\end{equation}
+
+besitzen. 
+
+\subsection{Zerfallsstatistik und Zerfallsmechanismen von Myonen}
+
+Die mittlere Lebensdauer $\tau$ drückt aus, dass Anzahl von Myonen gemäß der exponentiellen Verteilung 
+\begin{equation}
+    N(t) = N_0 e^{-\frac{t}{\tau}}
+    \label{eq:exp_verteilung}
+\end{equation}
+mit Anfangswert $N_0$ verteilt ist. 
+
+Ist die Kurve $N(t)$ bekannt, kann also die mittlere Lebendauer ganz einfach durch Umstellen über 
+\begin{equation}
+    \tau = \frac{t}{\ln(\frac{N_0}{N(t)})}
+    \label{eq:tau}
+\end{equation}
+berechnet werden.
+
+Myonen zerfallen hautpsächlich über den Zerfallskanal
+\begin{align*}
+    \mu^{-} \rightarrow e^{-} + \overbar{\nu}_e + \nu_{\mu} \, ,
+\end{align*}
+es können aber auch je nach 
 
 
 \clearpage
