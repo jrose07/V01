@@ -25,12 +25,10 @@ Der Einfachheit halber wird hierfür das Python-Paket \textit{uncertainties} ver
 Hierbei wurde ein Eingangssignal mit einer Breite von $t = \qty{15}{\nano\second}$ verwendet.
 Die Messdauer betrug jeweils \qty{20}{\second}.
 Die Unsicherheit der Zählrate $N$ ergibt sich aus $\sqrt{N}$.
-Die Messwerte Werten in \autoref{tab:delay} aufgetragen.
+Die Messwerte werden in \autoref{tab:delay} aufgetragen.
 \begin{table}[H]
     \centering
-    \caption{Zählraten der Koinzidenz in Abhängigkeit der Verzögerungszeit $\Delta t$.
-    Negative $\Delta t$ entsprechen einer Verzögerung der linken, positive einer
-    Verzögerung der rechten Verzögerungsleitung.}
+    \caption{Zählraten der Koinzidenz in Abhängigkeit der Verzögerungszeit $\Delta t$.}
     \label{tab:delay}
     \begin{tabular}{S[table-format=-2.0] S[table-format=3.0] S[table-format=2.0] S[table-format=3.0]}
         \toprule
@@ -65,9 +63,9 @@ In \autoref{fig:delay} werden die Messdaten aufgetragen. Hierbei wird das Platea
 
 Mithilfe der Formel 
 \begin{equation*}
-    t_{\text{verzögerung}} = t_{\text{HWB}} - t_{\text{Plateau}}
+    t_{\text{Verzögerung}} = t_{\text{HWB}} - t_{\text{Plateau}}
 \end{equation*}
-folgt $t_{\text{verzögerung}} = \qty{5}{\nano\second}$. 
+folgt $t_{\text{Verzögerung}} = \qty{4.49(0.92)}{\nano\second}$. 
 \subsection{Bestimmung der Channelzuordnung}
 In der \autoref{tab:mca_kalibration} sind die Messwerte zur Bestimmung der Kanalzuordnung dargestellt. 
 Die Kanäle in denen mehrere Counts eingeganen sind, wurden mithilfe des gewichteten Mittelwertes berechnet.
@@ -126,25 +124,25 @@ Es wurden $N_{\text{gefüllt}}= 466$ Kanäle gefüllt.
     \caption{Lebenszeitverteilung der Myonen.}
     \label{fig:lebenszeit}
 \end{figure}
-Hierbei wurden die Kanäle von 20 bis 450 betrachtet, da die Kanäle unterhalb von 20 nicht gefüllt waren und die Kanäle oberhalb von 450 nur wenige Einträge hatten.
+Hierbei wurden alle Kanäle betrachtet.
 Mithilfe der exponenziellen Regression der Form
 \begin{equation*}
     N(t) = N_0 \exp \left( -{\lambda t} \right) + U
 \end{equation*} 
 folgt für die Parameter:
 \begin{align*}
-    N_0     &= \num{2.66(0.18)} \\
-    \lambda &= \qty{0.49(0.07)}{\per\micro\second} \\
-    U       &= \num{0.05(0.07)} \,.
+    N_0     &= \num{2.35(0.15)} \\
+    \lambda &= \qty{0.40(0.06)}{\per\micro\second} \\
+    U       &= -\num{0.01(0.07)} \,.
 \end{align*}
 Die Lebenszeit der Myonen berechnet sich über die Formel
 \begin{equation*}
     \tau = \frac{1}{\lambda},
 \end{equation*}
-woraus sich für die Lebenszeit der Myonen $\tau = \qty{2.04(0.28)}{\micro\second}$ ergibt.
+woraus sich für die Lebenszeit der Myonen $\tau = \qty{2.48(0.35)}{\micro\second}$ ergibt.
 
 \subsection{Bestimmung der Untergundrate}
-Zur Bestimmung der Untergundrate kann entweder die Methode verwendet werden, das $U$ aus dem exponenziellen Fit zu ziehen oder das $U$ kann rechnerisch bestimmt werden. Hierbei wird nur die zweite Methode verwendet, da das $U$ aus dem exponenziellen Fit wenig Aussagekraft hat, da der Fehler davon ziemlich groß ist.
+Zur Bestimmung der Untergundrate kann entweder die Methode verwendet werden, das $U$ aus dem exponenziellen Fit zu ziehen oder das $U$ kann rechnerisch bestimmt werden. Hierbei wird nur die zweite Methode verwendet, da das $U$ aus dem exponenziellen Fit wenig Aussagekraft hat, da der Fehler davon ziemlich groß ist und es des Weiteren negativ ist, was physikalisch keinen Sinn macht.
 Um das $U$ rechnerisch zu bestimmen wird zuerst die durchschnittliche Rate der Myonen mit
 \begin{equation*}
     N_{\text{Myon}} = \frac{N_{\text{Start}}}{t}

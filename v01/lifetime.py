@@ -8,8 +8,10 @@ registrierte Stoppimpulse), rechnet die Kanalnummer mit der Kalibrierung
 aus channel.py in eine Zeit um und fuehrt eine exponentielle
 Ausgleichsrechnung
     N(t) = N_0 * exp(-lambda * t) + U
-mit scipy.optimize.curve_fit durch. Plot im Stil der Vorlage (Abb. 4).
+mit scipy.optimize.curve_fit durch. Es werden ALLE Messwerte einbezogen.
+Plot im Stil der Vorlage (Abb. 4).
 """
+import os
 import uncertainties.unumpy as unp
 import numpy as np
 import datetime as dt
@@ -23,6 +25,7 @@ import matplotlib.pyplot as plt
 
 dir     = "content/plots/"
 dir_tab = "content/tables/"
+os.makedirs(dir, exist_ok=True)
 
 # ----------------------------------------------------------------------
 # EINSTELLUNGEN
@@ -33,7 +36,6 @@ OUTPUT_PNG = dir + "lifetime_plot.png"
 # Zeitkalibrierung aus channel.py:  Delta_t = CAL_A * Kanal + CAL_B
 CAL_A = 0.021685      # us / Kanal
 CAL_B = 0.155200      # us
-SKIP_FIRST = 0        # erste Kanaele nicht in den Fit einbeziehen
 
 
 # ----------------------------------------------------------------------
@@ -81,21 +83,13 @@ print("(N_start ist nicht in der Datei gespeichert -> Zaehleranzeige verwenden)\
 
 
 # ----------------------------------------------------------------------
-# MASKEN: einbezogene / nicht einbezogene Messwerte
-# ----------------------------------------------------------------------
-einbezogen = (kanal >= SKIP_FIRST) & (kanal <= letzter_kanal)
-ausgelassen = ~einbezogen
-
-
-# ----------------------------------------------------------------------
-# AUSGLEICHSRECHNUNG  N(t) = N0 * exp(-lambda t) + U
+# AUSGLEICHSRECHNUNG  N(t) = N0 * exp(-lambda t) + U   (alle Messwerte)
 # ----------------------------------------------------------------------
 def zerfall(t, N0, lam, U):
     return N0 * np.exp(-lam * t) + U
 
 p0 = [counts.max(), 0.46, 0.3]
-popt, pcov = curve_fit(zerfall, t_us[einbezogen], counts[einbezogen],
-                       p0=p0, maxfev=10000)
+popt, pcov = curve_fit(zerfall, t_us, counts, p0=p0, maxfev=10000)
 perr = np.sqrt(np.diag(pcov))
 
 N0_u  = ufloat(popt[0], perr[0])
@@ -103,7 +97,7 @@ lam_u = ufloat(popt[1], perr[1])
 U_u   = ufloat(popt[2], perr[2])
 tau_u = 1 / lam_u
 
-print("----- Ausgleichsrechnung -----")
+print("----- Ausgleichsrechnung (alle Kanaele) -----")
 print(f"N_0    = {N0_u}")
 print(f"lambda = {lam_u} 1/us")
 print(f"U      = {U_u}")
@@ -116,12 +110,9 @@ print(f"tau    = {tau_u} us")
 plt.rcParams.update({"font.size": 12, "font.family": "serif"})
 fig, ax = plt.subplots(figsize=(8, 5))
 
-ax.plot(t_us[einbezogen], counts[einbezogen], ".", color="red", ms=4,
-        label="Messwerte")
-ax.plot(t_us[ausgelassen], counts[ausgelassen], ".", color="blue", ms=4,
-        label="nicht einbezogene Messwerte")
+ax.plot(t_us, counts, ".", color="red", ms=4, label="Messwerte")
 
-t_fit = np.linspace(t_us[einbezogen].min(), t_us[einbezogen].max(), 500)
+t_fit = np.linspace(t_us.min(), t_us.max(), 500)
 ax.plot(t_fit, zerfall(t_fit, *popt), color="black", lw=1.0,
         label="Ausgleichsfunktion")
 
