@@ -124,41 +124,62 @@ print(f"Aufloesungszeit = |2*{TAU_REF:.0f} - FWHM| = {abs(dt_K_u.n):.2f} +/- {dt
 # ----------------------------------------------------------------------
 # PLOT
 # ----------------------------------------------------------------------
-plt.rcParams.update({"font.size": 12, "font.family": "serif"})
-fig, ax = plt.subplots(figsize=(8, 6))
+plt.rcParams.update({"font.size": 11, "font.family": "serif",
+                     "mathtext.fontset": "cm"})
+fig, ax = plt.subplots(figsize=(8, 5.2))
 
-ax.errorbar(t, c, yerr=c_err, fmt="+", color="black", ecolor="black",
-            elinewidth=0.9, capsize=2.5, markersize=8, label="Messwerte")
+# Farbpalette
+C_DATA  = "#2B3A55"   # Messwerte
+C_PLAT  = "#2A9D8F"   # Plateau
+C_FLANK = "#E76F51"   # Flankengeraden
+C_HWB   = "#6D4C41"   # Halbwertsbreite
 
+ax.grid(True, color="0.9", lw=0.6, zorder=0)
+ax.set_axisbelow(True)
+
+# Messwerte
+ax.errorbar(t, c, yerr=c_err, fmt="o", color=C_DATA, ecolor=C_DATA,
+            elinewidth=0.8, capsize=2, markersize=3.5, alpha=0.9,
+            label="Messwerte", zorder=3)
+
+# Plateau als Linie + Fehlerband
 t_plat = t[plateau_mask]
-ax.plot([t_plat.min(), t_plat.max()], [plateau, plateau],
-        color="red", lw=1.3, label="Plateau")
+ax.hlines(plateau, t_plat.min(), t_plat.max(), color=C_PLAT, lw=2,
+          zorder=4, label="Plateau")
 
-ax.plot([t_links_u.n, t_rechts_u.n], [half_max, half_max],
-        color="red", lw=1.2, ls="--", label="Halbwertsbreite")
+# Halb-Maximum-Niveau + FWHM-Doppelpfeil
+ax.hlines(half_max, t_links_u.n, t_rechts_u.n, color=C_HWB, lw=1,
+          ls=(0, (4, 3)), zorder=4)
+ax.annotate("", xy=(t_rechts_u.n, half_max), xytext=(t_links_u.n, half_max),
+            arrowprops=dict(arrowstyle="<->", color=C_HWB, lw=1.3))
+ax.text((t_links_u.n + t_rechts_u.n) / 2, half_max + 0.045 * c.max(),
+        rf"FWHM $= {fwhm_u.n:.1f}$ ns", color=C_HWB, ha="center",
+        fontsize=10, style="italic")
 
 # Flankengeraden: nur zwischen den zwei verwendeten Punkten
 for k, (ti_, coef_) in enumerate([(ti_l, coef_l), (ti_r, coef_r)]):
     xx = np.array([ti_[0], ti_[1]])
-    ax.plot(xx, coef_[0] * xx + coef_[1], color="blue", lw=1.2,
-            marker="o", ms=4,
-            label="lineare Regression" if k == 0 else None)
+    ax.plot(xx, coef_[0] * xx + coef_[1], color=C_FLANK, lw=1.8,
+            marker="o", markersize=6, mfc="white", mec=C_FLANK, mew=1.5,
+            label="Flankengerade" if k == 0 else None, zorder=5)
 
+# Schnittpunkte: dezente Verticals + Wertelabels
 for tc in (t_links_u.n, t_rechts_u.n):
-    ax.axvline(tc, color="black", lw=0.9, ls="--")
-    ax.annotate(f"{tc:.1f}", xy=(tc, plateau * 1.45),
-                color="red", ha="center", fontsize=11, fontweight="bold")
+    ax.axvline(tc, color="0.6", lw=0.8, ls=":", zorder=1)
+    ax.text(tc, 0.045 * c.max(), f"{tc:.1f}", color=C_FLANK, ha="center",
+            fontsize=9,
+            bbox=dict(boxstyle="round,pad=0.15", fc="white", ec="none", alpha=0.8))
 
-ax.set_xlabel(r"$T_{\mathrm{VZ}}$ [ns]")
+ax.set_xlabel(r"$T_{\mathrm{VZ}} \;/\; \mathrm{ns}$")
 ax.set_ylabel("Counts")
 ax.set_xlim(t.min() - 5, t.max() + 5)
-ax.set_ylim(0, c.max() * 1.45)
+ax.set_ylim(0, c.max() * 1.35)
 
 handles, labels = ax.get_legend_handles_labels()
-reihenfolge = ["Messwerte", "Plateau", "Halbwertsbreite", "lineare Regression"]
+reihenfolge = ["Messwerte", "Plateau", "Flankengerade"]
 idx = [labels.index(l) for l in reihenfolge if l in labels]
 ax.legend([handles[i] for i in idx], [labels[i] for i in idx],
-          loc="upper center", framealpha=1.0, edgecolor="black")
+          loc="upper right", framealpha=0.95, edgecolor="0.8", fontsize=10)
 
 fig.tight_layout()
 fig.savefig(OUTPUT_PNG, dpi=150)
