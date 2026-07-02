@@ -33,10 +33,10 @@ SPE_PFAD   = "raw/2026_0611.Spe"
 
 CAL_A = 0.021685       # us / Kanal   (aus channel.py)
 CAL_B = 0.155200       # us
-SKIP_FIRST = 3         # erste Kanaele nicht in den Fit einbeziehen
+SKIP_FIRST = 0         # erste Kanaele nicht in den Fit einbeziehen
 
-N_START = 980000.0     # (!) Startimpulse vom Zaehler (nicht in der .Spe gespeichert!)
-T_S_US  = None         # (!) Suchzeit / TAC-Messbereich in us.
+N_START = 986743.0     # (!) Startimpulse vom Zaehler (nicht in der .Spe gespeichert!)
+T_S_US  = 20         # (!) Suchzeit / TAC-Messbereich in us.
                        #     None -> automatisch = MCA-Zeitbereich aus der Kalibrierung.
                        #     Altprotokoll nutzte hier 20 us. Setze euren echten Wert!
 

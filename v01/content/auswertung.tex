@@ -122,7 +122,7 @@ Daraus lassen sich die Zeiten den Kanälen zuordnen, wie in \autoref{fig:channel
     \label{fig:channel}
 \end{figure}
 \subsection{Bestimmung der Lebenszeit}
-Es wurde über einen Zeitraum von $t = \qty{258769}{s} \approx \qty{2}{d} \, \qty{23}{h}$ mit einer Suchzeit von $T_S = \qty{11.24}{\micro\second}$ gemessen. Für die ersten zwei Tage ungefähr liefen die PMTs bei einer Arbeitsspannung von $\qty{1650}{\volt}$, wurden dann aber aufgrund einer geringen Menge an Stoppsignale auf $\qty{1900}{\volt}$ nachjustiert. Hierbei wurden insgesamt ungefähr $N_{\text{Start}} = 986743$ Startsignale und $N_{\text{Stopp}} = 813$ Stoppsignale aufgenommen. 
+Es wurde über einen Zeitraum von $t = \qty{258769}{s} \approx \qty{2}{d} \, \qty{23}{h}$ mit einer Suchzeit von $T_S = \qty{11.24}{\micro\second}$ gemessen. Für die ersten zwei Tage ungefähr liefen die PMTs bei einer Arbeitsspannung von $\qty{1650}{\volt}$, wurden dann aber aufgrund einer geringen Menge an Stoppsignale auf $\qty{1900}{\volt}$ nachjustiert. Hierbei wurden insgesamt $N_{\text{Start}} = 986743$ Startsignale und $N_{\text{Stopp}} = 813$ Stoppsignale aufgenommen. 
 
 Es wurden $N_{\text{gefüllt}}= 466$ Kanäle gefüllt.
 \begin{figure}[H]
@@ -155,7 +155,7 @@ Um das $U$ rechnerisch zu bestimmen wird zuerst die durchschnittliche Rate der M
     N_{\text{Myon}} = \frac{N_{\text{Start}}}{t}
 \end{equation*}
 bestimmt, woraus $N_{\text{Myon}} $ folgt.
-Mit der vom Impulszähler abgelesenen Startimpulszahl $N_{\text{Start}} = \num{980000}$
+Mit der vom Impulszähler abgelesenen Startimpulszahl $N_{\text{Start}} = \num{986743}$
 und der Messdauer $t = \qty{258769}{\second}$ ergibt sich
 \begin{equation*}
     N_{\text{Myon}} = \qty{3.787(4)}{\per\second} .
@@ -169,10 +169,10 @@ poissonverteilt. Die Wahrscheinlichkeit für genau $k$ weitere Myonen beträgt
     P(k) = \frac{(T_{\text{S}} \cdot N_{\text{Myon}})^{k}}{k!} \,
            \exp(-T_{\text{S}} \cdot N_{\text{Myon}}) .
 \end{equation*}
-Für einen fehlerhaften Stopp ist $k \geq 1$ relevant. Mit $T_{\text{S}} = \qty{11.24}{\micro\second}$
+Für einen fehlerhaften Stopp ist $k \geq 1$ relevant. Mit $T_{\text{S}} = \qty{20}{\micro\second}$
 folgt
 \begin{equation*}
-    P(k \geq 1) = 1 - P(0) = 1 - \exp(-T_{\text{S}} \cdot N_{\text{Myon}}) = \num{4.26e-5} .
+    P(k \geq 1) = 1 - P(0) = 1 - \exp(-T_{\text{S}} \cdot N_{\text{Myon}}) = \num{7.63e-5} .
 \end{equation*}
 Daraus ergibt sich die Anzahl der fehlerhaften Stoppimpulse zu
 \begin{equation*}
@@ -183,10 +183,8 @@ wahrscheinlich ist, verteilen sich diese Stoppimpulse gleichmäßig auf die $\nu
 befüllten Kanäle. Damit folgt die Untergrundrate pro Kanal zu
 \begin{equation*}
     U_{\text{Poisson}} = \frac{N_{\text{fehl}}}{466}
-    = \num{0.0895(2)} \, \frac{\text{Counts}}{\text{Kanal}} .
+    = \num{0.1615(3)} \, \frac{\text{Counts}}{\text{Kanal}} .
 \end{equation*}
-Zum Vergleich liefert der Achsenabschnitt der Ausgleichsrechnung
-$U_{\text{Fit}} = \num{0.05(7)}\,\tfrac{\text{Counts}}{\text{Kanal}}$, was den über die
-Poisson-Statistik bestimmten Wert innerhalb seiner großen Unsicherheit bestätigt.
+
 
 \clearpage
