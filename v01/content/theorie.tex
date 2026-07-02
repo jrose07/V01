@@ -65,7 +65,40 @@ Myonen zerfallen hautpsächlich über den Zerfallskanal
 \begin{align*}
     \mu^{-} \rightarrow e^{-} + \overbar{\nu}_e + \nu_{\mu} \, ,
 \end{align*}
-es können aber auch je nach 
+es können aber auch noch mit deutlich geringerer Wahrscheinlichkeit noch zusätzlich Photonen oder Elektron-Poistron-Paare abgestrahlt werden. \\
+
+In Materie haben Myonen noch einen weiteren Zerfallskanal, sie können nämlich ähnlich wie beim K-Einfang von Elektronen mit einem Atomkern ein Myonisches Atom bilden und dann nach einer gewissen Zeit vom Kern in einem Prozess, wie 
+\begin{align*}
+    \mu^{-} + p \rightarrow n + \nu_\mu
+\end{align*}
+absorbiert werden. Dadurch ergibt sich in Materie eine leicht geringere Lebensdauer, die abhängig von dem jeweiligen Material ist. 
+
+\subsection{Szintillatoren und Photomultiplier}
+
+Ein Szintillator ist ein Detektor ionisierender Strahlung. Deponiert die Strahlung innerhalb des Szintillators Energie, sei es durch Abbremsung, Ioniserung etc. , werden im Szintillator Lichtblitze erzeugt, die dann gemessen werden können. \\
+Hierbei ist es klar, dass Szinitllatoren nur gut mit speziellen Materialien funktionieren, wobei hierbei zwischen zwei Kategorien unterschieden wird. \\
+
+\begin{enumerate}
+    \item \textbf{Anorganische Szintillatoren} \\
+    Anorganische Szintillatormaterialien sind meist dotierte Festkörperkristalle, dessen Szintillatoreigenschaften stark von der jeweiligen Bandstruktur abhängen. Die ionisierende Strahlung erzeugt in diesem Festkörper freie Elektronen, freie Löcher oder Elektron-Loch-Paare, die die dotierten Atome anregen, welche dann beim Rückfallen in den Grundzustand Photonen emittieren. \\
+    Durch genaue Kontrolle der Dotierung kann hier eine sehr hohe Lichtausbeute und damit eine sehr gute Energieauflösung und Nachweiseffizienz erreicht werden. Durch die hohe Relaxationszeiten im Festkörper im Bereich von mehreren Mikrosekunden ist hier die Zeitauflösung des Signals allerdings für Messungen wo eine gute Zeitauflösung wichtig ist zu grob. 
+
+    \item \textbf{Organische Szinitllatoren} \\
+    Organische Szintillatormaterialien sind z.B. Plastik oder Flüssigkeiten, dessen Moleküle durch die ionisierende Strahlung angeregt werden und dadurch Lichtblitze entstehen. Die Lichtausbeute ist hier allerdings geringer als bei den anorganischen Szintillatoren, dafür sind die Abklingzeiten hier deutlich kürzer (im Nanosekundenbereich), was für eine bessere Zeitauflösung sorgt. Da das emittierte Licht in organische Szintillatormaterialen auch gut wieder selbst absorbiert wird und damit keine große Reichweite hat, werden dem Material noch zusätzliche Wellenlängenschieber hinzugefügt, die das emittierte Licht absorbieren, allerdings in einer anderen Wellenlänge emittieren, für die das organische Material transparent ist. 
+\end{enumerate}
+
+Das im Szintillator entstehende Licht wird dann mithilfe eines Photomultiplier (PMTs) verstärkt und in ein elektrisches Signal umgewandelt. \\
+Der grundlegende Aufbau eines PMTs ist in \autoref{fig:PMT} dargestellt.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{content/pics/PMT.png}
+    \caption{Grundlegender Aufbau eines Photomultiplier~\cite{teilchendetektoren}.}
+    \label{fig:PMT}
+\end{figure}
+
+Ein PMT funktioniert so, dass die einfallenden umzuwandelnden Photonen zerst auf eine Photokathode treffen, welche dann über den photelektrischen Effekt Elektronen aus dem Kathodenmaterial herauslösen. Diese werden dann über eine externe Hochspannungsquelle auf die erste Dynode hin beschleunigt und fokussiert, wo diese dann Sekundärelektronen aus dem Material herausschlagen. Diese Sekundärelektronen werden dann jeweils auf eine weitere Dynode beschleunigt, wo dieser Prozess dann wiederholt wird. Nach dem Dynodenarray ist also eine Kaskadenreaktion passiert, wodurch das eingehende Signal je nach Arbeitsspannung um das $10^5 - 10^7$-fache verstärkt auf eine letzte Anode trifft und dort als elektrisches Signal weiterverarbeitet wird. 
+
 
 
 \clearpage
